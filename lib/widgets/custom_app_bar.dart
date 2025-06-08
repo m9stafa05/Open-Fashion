@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 import 'package:open_fashion/constans.dart';
 
 class CustomAppBar extends StatelessWidget
@@ -21,6 +22,7 @@ class CustomAppBar extends StatelessWidget
         title: SvgPicture.asset('assets/logo/Logo.svg'),
         actions: [
           SvgPicture.asset('assets/svgs/Search.svg'),
+          Gap(20),
           SvgPicture.asset('assets/svgs/shopping bag.svg'),
         ],
       ),
