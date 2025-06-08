@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:open_fashion/widgets/cover_list_view.dart';
 import 'package:open_fashion/widgets/custom_text.dart';
+import 'package:open_fashion/widgets/home_screen_footer.dart';
 import 'package:open_fashion/widgets/product_grid_view.dart';
 
 class HomeScreenBody extends StatelessWidget {
@@ -52,16 +53,12 @@ class HomeScreenBody extends StatelessWidget {
                 size: 32,
                 color: Colors.white,
               ),
-              const Gap(10),
               SvgPicture.asset('assets/svgs/line.svg', width: 200),
               const Gap(8),
               CoverListView(),
+              const Gap(10),
               //Footer Section
-              Column(
-                
-                children: [
-                
-              ],),
+              HomeScreenFooter(),
             ],
           ),
         ),
