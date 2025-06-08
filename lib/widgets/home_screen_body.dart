@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:open_fashion/models/product_model.dart';
-import 'package:open_fashion/widgets/product_card.dart';
+import 'package:open_fashion/widgets/cover_list_view.dart';
+import 'package:open_fashion/widgets/custom_text.dart';
+import 'package:open_fashion/widgets/product_grid_view.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -43,26 +44,24 @@ class HomeScreenBody extends StatelessWidget {
               Image.asset('assets/cover/cover.png'),
               const Gap(120),
               // Product Card Section
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.6,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 40,
-                    ),
-                itemCount: ProductModel.productsList.length,
-                itemBuilder: (context, index) {
-                  final item = ProductModel.productsList[index];
-                  return ProductCard(item: item);
-                },
-              ),
-
+              ProductGridView(),
               const Gap(20),
-
+              // Recommendation Section
+              CustomText(
+                text: 'You may also like'.toUpperCase(),
+                size: 32,
+                color: Colors.white,
+              ),
+              const Gap(10),
+              SvgPicture.asset('assets/svgs/line.svg', width: 200),
+              const Gap(8),
+              CoverListView(),
+              //Footer Section
+              Column(
+                
+                children: [
+                
+              ],),
             ],
           ),
         ),
