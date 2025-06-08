@@ -52,20 +52,29 @@ class HomeScreenFooter extends StatelessWidget {
           SvgPicture.asset('assets/svgs/line.svg', width: 200),
           const Gap(20),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomText(text: 'About', color: Colors.white),
-              const Gap(8),
-              CustomText(text: 'Contact', color: Colors.white),
-              const Gap(8),
-              CustomText(text: 'Blog', color: Colors.white),
-              const Gap(15),
+              CustomText(
+                text: 'About          Contact          Blog',
+                color: Colors.white,
+              ),
             ],
           ),
           const Gap(20),
-          CustomText(
-            text: 'Copyright© OpenUI All Rights Reserved.',
-            color: Colors.grey,
+          Container(
+            width: double.infinity,
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: CustomText(
+                  size: 12,
+                  height: 1.8,
+                  max: 2,
+                  text: 'Copyright© OpenUI All Rights Reserved.',
+                ),
+              ),
+            ),
           ),
         ],
       ),

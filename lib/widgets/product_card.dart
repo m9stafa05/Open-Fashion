@@ -16,13 +16,16 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(child: Image.asset(item.image, fit: BoxFit.cover)),
-          const Gap(8),
+          const Gap(10),
           CustomText(text: item.title, color: Colors.white, size: 16),
+          const Gap(6),
           CustomText(
             text: item.description,
             color: Colors.grey,
+            height: 1.2,
             size: 12,
           ),
+          const Gap(15),
           CustomText(
             text: '\$${item.price.toString()}',
             color: Color(0xffDD8560),
