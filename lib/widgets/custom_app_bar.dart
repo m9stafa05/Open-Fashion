@@ -16,14 +16,26 @@ class CustomAppBar extends StatelessWidget
       padding: const EdgeInsets.all(8.0),
       child: AppBar(
         backgroundColor: isBlack ? kPrimaryColor : kSecondaryColor,
-        leading: SvgPicture.asset('assets/svgs/Menu.svg'),
+        leading: SvgPicture.asset(
+          'assets/svgs/Menu.svg',
+          color: isBlack ? kSecondaryColor : kPrimaryColor,
+        ),
         leadingWidth: 40,
         centerTitle: true,
-        title: SvgPicture.asset('assets/logo/Logo.svg'),
+        title: SvgPicture.asset(
+          'assets/logo/Logo.svg',
+          color: isBlack ? kSecondaryColor : kPrimaryColor,
+        ),
         actions: [
-          SvgPicture.asset('assets/svgs/Search.svg'),
+          SvgPicture.asset(
+            'assets/svgs/Search.svg',
+            color: isBlack ? kSecondaryColor : kPrimaryColor,
+          ),
           Gap(20),
-          SvgPicture.asset('assets/svgs/shopping bag.svg'),
+          SvgPicture.asset(
+            'assets/svgs/shopping bag.svg',
+            color: isBlack ? kSecondaryColor : kPrimaryColor,
+          ),
         ],
       ),
     );
