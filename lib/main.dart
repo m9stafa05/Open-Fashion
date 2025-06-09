@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:open_fashion/models/product_model.dart';
 import 'package:open_fashion/screens/check_out_screen.dart';
 import 'package:open_fashion/screens/home_screen.dart';
+import 'package:open_fashion/screens/place_holder_screen.dart';
 
 void main() {
   runApp(const OpenFashion());
@@ -27,6 +28,7 @@ class OpenFashion extends StatelessWidget {
             price: item.price,
           );
         },
+        PlaceHolderScreen.id: (context) => const PlaceHolderScreen(),
       },
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.id,
