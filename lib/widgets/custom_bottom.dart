@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:gap/gap.dart';
+import 'package:open_fashion/constans.dart';
+import 'package:open_fashion/widgets/custom_text.dart';
+
+class CustomBottom extends StatelessWidget {
+  const CustomBottom({
+    super.key,
+    required this.text,
+    this.withIcon = false,
+    required this.onTap,
+  });
+  final String text;
+  final bool withIcon;
+  final Function() onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(24),
+        width: double.infinity,
+        color: kPrimaryColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            withIcon
+                ? SvgPicture.asset(
+                    'assets/svgs/shopping bag.svg',
+                    color: Colors.white,
+                    width: 25,
+                  )
+                : SizedBox.shrink(),
+            Gap(20),
+            CustomText(
+              text: text.toUpperCase(),
+              size: 20,
+              color: Colors.white,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
