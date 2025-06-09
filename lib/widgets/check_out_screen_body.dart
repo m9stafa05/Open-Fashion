@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:open_fashion/constans.dart';
-import 'package:open_fashion/widgets/Quantity_count.dart';
-import 'package:open_fashion/widgets/custom_text.dart';
+import 'package:open_fashion/widgets/checkout_card.dart';
+import 'package:open_fashion/widgets/custom_bottom.dart';
 import 'package:open_fashion/widgets/custom_text_header.dart';
+import 'package:open_fashion/widgets/promo_delivery.dart';
+import 'package:open_fashion/widgets/total_cost.dart';
 
-class CheckOutScreenBody extends StatefulWidget {
+class CheckOutScreenBody extends StatelessWidget {
   const CheckOutScreenBody({
     super.key,
     required this.image,
@@ -17,90 +18,30 @@ class CheckOutScreenBody extends StatefulWidget {
   final String title;
   final String description;
   final double price;
-  @override
-  State<CheckOutScreenBody> createState() =>
-      _CheckOutScreenBodyState();
-}
 
-class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
-  int count = 1;
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: Column(
-        children: [
-          CustomTextHeader(text: 'CheckOut'),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image(image: AssetImage(widget.image), width: 130),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomText(
-                      text: widget.title,
-                      size: 20,
-                      spacing: 5,
-                      color: kPrimaryColor,
-                    ),
-                    Gap(10),
-                    SizedBox(
-                      width: size.width * .5,
-                      child: CustomText(
-                        text: widget.description,
-                        color: Colors.grey,
-                        size: 14,
-                      ),
-                    ),
-                    const Gap(40),
-                    Row(
-                      children: [
-                        Quantity(
-                          onTap: () {
-                            setState(() {
-                              if (count > 1) {
-                                count--;
-                              }
-                            });
-                          },
-                          svg: 'assets/svgs/mins.svg',
-                        ),
-                        const Gap(10),
-                        CustomText(
-                          text: count.toString(),
-                          color: Colors.black,
-                          weight: FontWeight.bold,
-                          spacing: 2,
-                        ),
-                        const Gap(10),
-                        Quantity(
-                          onTap: () {
-                            setState(() {
-                              count++;
-                            });
-                          },
-                          svg: 'assets/svgs/plus.svg',
-                        ),
-                      ],
-                    ),
-                    const Gap(30),
-                    CustomText(
-                      text: '\$${widget.price.toString()}',
-                      color: Color(0xffDD8560),
-                      size: 18,
-                      weight: FontWeight.bold,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: CustomTextHeader(text: 'CheckOut'),
+        ),
+        CheckoutCard(
+          image: image,
+          title: title,
+          description: description,
+          price: price,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: PromoDelivery(),
+        ),
+        Spacer(),
+        TotalCost(price: price),
+        Gap(10),
+        CustomBottom(text: 'Checkout', withIcon: true, onTap: () {}),
+      ],
     );
   }
 }
