@@ -5,7 +5,7 @@ import 'package:open_fashion/widgets/home_screen_body.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
+  static const String id = '/homeScreen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
