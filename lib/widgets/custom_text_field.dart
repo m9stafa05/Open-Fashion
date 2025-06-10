@@ -7,17 +7,20 @@ class CustomTextField extends StatelessWidget {
     required this.label,
     this.keyboardType,
     this.controller,
+    this.validator,
   });
 
   final String label;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
+      validator: validator,
       decoration: InputDecoration(
         label: CustomText(text: label, color: Color(0xff979797)),
         floatingLabelStyle: TextStyle(color: Colors.black),
