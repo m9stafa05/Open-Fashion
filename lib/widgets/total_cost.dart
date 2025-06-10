@@ -13,7 +13,11 @@ class TotalCost extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CustomText(text: 'Est. Total', height: 1.5, size: 20),
+          CustomText(
+            text: 'Est. Total'.toUpperCase(),
+            height: 1.5,
+            size: 20,
+          ),
           CustomText(
             text: price.toString(),
             height: 1.5,
