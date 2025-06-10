@@ -1,11 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:open_fashion/screens/add_address_screen.dart';
+import 'package:open_fashion/widgets/address_data_flow.dart';
 import 'package:open_fashion/widgets/custom_text.dart';
 import 'package:open_fashion/widgets/select_container.dart';
 
-class AddressSelection extends StatelessWidget {
+class AddressSelection extends StatefulWidget {
   const AddressSelection({super.key});
+
+  @override
+  State<AddressSelection> createState() => _AddressSelectionState();
+}
+
+class _AddressSelectionState extends State<AddressSelection> {
+  dynamic savedAddress, newAddress;
+
+  void openAddress(context) async {
+    final addressData = await Navigator.pushNamed(
+      context,
+      AddAddressScreen.id,
+    );
+
+    if (addressData != null) {
+      savedAddress = addressData;
+    }
+  }
+
+  void editData() async {
+    final addressData = await Navigator.pushNamed(
+      context,
+      AddAddressScreen.id,
+      arguments: savedAddress,
+    );
+
+    if (addressData != null) {
+      setState(() {
+        savedAddress = addressData;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,51 +55,28 @@ class AddressSelection extends StatelessWidget {
           Gap(15),
           Padding(
             padding: const EdgeInsets.only(left: 20.0),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomText(
-                      text: 'Iris Watson',
-                      color: Colors.black,
+            child: savedAddress != null
+                ? GestureDetector(
+                    onTap: editData,
+                    child: AddressDataFlow(
+                      savedAddress: savedAddress,
                     ),
-                    const Gap(8),
-                    CustomText(
-                      text: '606-3727 Ullamcorper. Street',
-                      color: Colors.grey,
-                      size: 14,
-                    ),
-                    const Gap(5),
-                    CustomText(
-                      text: 'Roseville NH 11523',
-                      color: Colors.grey,
-                      size: 14,
-                    ),
-                    const Gap(5),
-                    CustomText(
-                      text: '(786) 713-8616',
-                      color: Colors.grey,
-                      size: 14,
-                    ),
-                  ],
-                ),
-                Spacer(),
-                Icon(Icons.arrow_forward_ios_outlined),
-              ],
-            ),
+                  )
+                : SizedBox.shrink(),
           ),
-          const Gap(30),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, AddAddressScreen.id);
-            },
-            child: SelectContainer(
-              text: 'Add shipping address',
-              icon: Icons.add,
-              withDefaultSelection: false,
-            ),
-          ),
+          const Gap(20),
+          savedAddress == null
+              ? GestureDetector(
+                  onTap: () {
+                    openAddress(context);
+                  },
+                  child: SelectContainer(
+                    text: 'Add shipping address',
+                    icon: Icons.add,
+                    withDefaultSelection: false,
+                  ),
+                )
+              : SizedBox.shrink(),
         ],
       ),
     );
