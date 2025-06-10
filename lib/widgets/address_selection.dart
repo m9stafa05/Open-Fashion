@@ -13,7 +13,7 @@ class AddressSelection extends StatefulWidget {
 }
 
 class _AddressSelectionState extends State<AddressSelection> {
-  dynamic savedAddress, newAddress;
+  dynamic savedAddress;
 
   void openAddress(context) async {
     final addressData = await Navigator.pushNamed(
