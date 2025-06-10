@@ -8,7 +8,7 @@ class CustomBottom extends StatelessWidget {
   const CustomBottom({
     super.key,
     required this.text,
-    this.withIcon = false,
+    this.withIcon = true,
     required this.onTap,
   });
   final String text;
