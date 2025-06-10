@@ -28,7 +28,19 @@ class OpenFashion extends StatelessWidget {
             price: item.price,
           );
         },
-        PlaceOrderScreen.id: (context) => const PlaceOrderScreen(),
+        PlaceOrderScreen.id: (context) {
+          final args =
+              ModalRoute.of(context)!.settings.arguments
+                  as Map<String, dynamic>;
+          return PlaceOrderScreen(
+            image: args['image'],
+            title: args['title'],
+            description: args['description'],
+            price: args['price'],
+            quantity: args['quantity'],
+            total: args['total'],
+          );
+        },
       },
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.id,

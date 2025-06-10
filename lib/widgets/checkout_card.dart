@@ -11,11 +11,13 @@ class CheckoutCard extends StatefulWidget {
     required this.title,
     required this.description,
     required this.price,
+    required this.onChange,
   });
   final String image;
   final String title;
   final String description;
   final double price;
+  final Function(int) onChange;
   @override
   State<CheckoutCard> createState() => _CheckoutCardState();
 }
@@ -59,6 +61,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
                         setState(() {
                           if (count > 1) {
                             count--;
+                            widget.onChange(count);
                           }
                         });
                       },
@@ -76,6 +79,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
                       onTap: () {
                         setState(() {
                           count++;
+                          widget.onChange(count);
                         });
                       },
                       svg: 'assets/svgs/plus.svg',
