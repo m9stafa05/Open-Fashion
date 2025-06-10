@@ -27,6 +27,9 @@ class CheckOutScreenBody extends StatefulWidget {
 
 class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
   int selectedQuantity = 1;
+
+  double get total => widget.price * selectedQuantity;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,13 +54,11 @@ class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
           child: PromoDelivery(),
         ),
         Spacer(),
-        TotalCost(price: widget.price * selectedQuantity),
+        TotalCost(price: total),
         Gap(10),
         CustomBottom(
           text: 'Checkout',
-          withIcon: true,
           onTap: () {
-            final total = widget.price * selectedQuantity;
             Navigator.pushNamed(
               context,
               PlaceOrderScreen.id,
