@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:open_fashion/screens/add_address_screen.dart';
 import 'package:open_fashion/widgets/custom_text.dart';
 import 'package:open_fashion/widgets/select_container.dart';
 
@@ -56,10 +57,15 @@ class AddressSelection extends StatelessWidget {
             ),
           ),
           const Gap(30),
-          SelectContainer(
-            text: 'Add shipping address',
-            icon: Icons.add,
-            withDefaultSelection: false,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, AddAddressScreen.id);
+            },
+            child: SelectContainer(
+              text: 'Add shipping address',
+              icon: Icons.add,
+              withDefaultSelection: false,
+            ),
           ),
         ],
       ),
