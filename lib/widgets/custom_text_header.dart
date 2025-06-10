@@ -12,7 +12,7 @@ class CustomTextHeader extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          CustomText(text: text.toUpperCase(), spacing: 10),
+          CustomText(text: text.toUpperCase(), size: 18, spacing: 6),
           Gap(10),
           SvgPicture.asset(
             'assets/svgs/line.svg',
