@@ -90,15 +90,13 @@ class _AddressSelectionState extends State<AddressSelection> {
           ),
           const Gap(20),
           savedAddress == null
-              ? GestureDetector(
+              ? SelectContainer(
                   onTap: () {
                     openAddress(context);
                   },
-                  child: SelectContainer(
-                    text: 'Add shipping address',
-                    icon: Icons.add,
-                    withDefaultSelection: false,
-                  ),
+                  text: 'Add shipping address',
+                  icon: Icons.add,
+                  withDefaultSelection: false,
                 )
               : SizedBox.shrink(),
         ],
