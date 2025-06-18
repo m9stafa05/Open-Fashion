@@ -15,10 +15,10 @@ class AddCreditCardScreenBody extends StatefulWidget {
 
 class _AddCreditCardScreenBodyState
     extends State<AddCreditCardScreenBody> {
-  late String cardNumber;
-  late String expiryDate;
-  late String cardHolderName;
-  late String cvvCode;
+  String cardNumber = '';
+  String expiryDate = '';
+  String cardHolderName = '';
+  String cvvCode = '';
   bool showBackView = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
