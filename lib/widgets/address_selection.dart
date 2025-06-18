@@ -4,6 +4,7 @@ import 'package:open_fashion/screens/add_address_screen.dart';
 import 'package:open_fashion/widgets/address_data_flow.dart';
 import 'package:open_fashion/widgets/custom_text.dart';
 import 'package:open_fashion/widgets/select_container.dart';
+import 'package:open_fashion/widgets/address_storge.dart';
 
 class AddressSelection extends StatefulWidget {
   const AddressSelection({super.key});
@@ -15,6 +16,21 @@ class AddressSelection extends StatefulWidget {
 class _AddressSelectionState extends State<AddressSelection> {
   dynamic savedAddress;
 
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedAddress();
+  }
+
+  Future<void> _loadSavedAddress() async {
+    final address = await AddressStorage.getAddress();
+    if (address != null) {
+      setState(() {
+        savedAddress = address;
+      });
+    }
+  }
+
   void openAddress(context) async {
     final addressData = await Navigator.pushNamed(
       context,
@@ -22,7 +38,12 @@ class _AddressSelectionState extends State<AddressSelection> {
     );
 
     if (addressData != null) {
-      savedAddress = addressData;
+      await AddressStorage.saveAddress(
+        addressData as Map<String, dynamic>,
+      ); // Add this line
+      setState(() {
+        savedAddress = addressData;
+      });
     }
   }
 
@@ -34,6 +55,9 @@ class _AddressSelectionState extends State<AddressSelection> {
     );
 
     if (addressData != null) {
+      await AddressStorage.saveAddress(
+        addressData as Map<String, dynamic>,
+      ); // Add this line
       setState(() {
         savedAddress = addressData;
       });
