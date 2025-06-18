@@ -4,8 +4,11 @@ import 'package:open_fashion/screens/add_address_screen.dart';
 import 'package:open_fashion/screens/check_out_screen.dart';
 import 'package:open_fashion/screens/home_screen.dart';
 import 'package:open_fashion/screens/place_order_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferences.getInstance();
   runApp(const OpenFashion());
 }
 
