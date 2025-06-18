@@ -37,6 +37,7 @@ dependencies:
   flutter_svg: ^2.1.0
   gap: ^3.0.1
   ionicons: ^0.2.2
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
