@@ -31,10 +31,10 @@ class PlaceOrderScreenBody extends StatelessWidget {
         const Gap(20),
         // Address Section
         AddressSelection(),
-        const Gap(50),
+        const Gap(10),
         // Shopping Method Section
         ShoppingMethod(),
-        const Gap(50),
+        const Gap(30),
         // Payment Method Section
         PaymentMethodSelection(),
         Spacer(),
