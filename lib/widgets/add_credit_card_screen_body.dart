@@ -25,37 +25,53 @@ class _AddCreditCardScreenBodyState
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomTextHeader(text: 'Payment method'),
-        GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+        Expanded(
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Credit Card information
-                CreditCardWidget(
-                  cardNumber: cardNumber,
-                  expiryDate: expiryDate,
-                  cardHolderName: cardHolderName,
-                  cvvCode: cvvCode,
-                  showBackView: showBackView,
-                  isHolderNameVisible: true,
-                  onCreditCardWidgetChange: (v) {},
-                  cardBgColor: Colors.black,
-                ),
-                CreditCardForm(
-                  formKey: _formKey,
-                  cardNumber: cardNumber,
-                  expiryDate: expiryDate,
-                  cardHolderName: cardHolderName,
-                  cvvCode: cvvCode,
-                  onCreditCardModelChange: onCreditCardModelChange,
-                  isCardHolderNameUpperCase: true,
-                ),
-              ],
+            child: Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+              ),
+              child: Column(
+                children: [
+                  CustomTextHeader(text: 'Payment method'),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: GestureDetector(
+                      onTap: () => FocusScope.of(context).unfocus(),
+                      child: Column(
+                        children: [
+                          // Credit Card information
+                          CreditCardWidget(
+                            cardNumber: cardNumber,
+                            expiryDate: expiryDate,
+                            cardHolderName: cardHolderName,
+                            cvvCode: cvvCode,
+                            showBackView: showBackView,
+                            isHolderNameVisible: true,
+                            onCreditCardWidgetChange: (v) {},
+                            cardBgColor: Colors.black,
+                          ),
+                          CreditCardForm(
+                            formKey: _formKey,
+                            cardNumber: cardNumber,
+                            expiryDate: expiryDate,
+                            cardHolderName: cardHolderName,
+                            cvvCode: cvvCode,
+                            onCreditCardModelChange:
+                                onCreditCardModelChange,
+                            isCardHolderNameUpperCase: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-        const Spacer(),
         CustomBottom(
           text: 'Add card',
           withIcon: false,
