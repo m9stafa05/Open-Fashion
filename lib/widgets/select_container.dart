@@ -9,36 +9,40 @@ class SelectContainer extends StatelessWidget {
     required this.icon,
     this.defaultSelectionText = '',
     required this.withDefaultSelection,
+    this.onTap,
   });
   final String text;
   final String defaultSelectionText;
   final IconData icon;
   final bool withDefaultSelection;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        width: 370,
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
-        decoration: BoxDecoration(
-          color: const Color(0xFFF2F2F2),
-          borderRadius: BorderRadius.circular(44),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CustomText(text: text, color: Color(0xff555555)),
-            Spacer(),
-            withDefaultSelection
-                ? CustomText(
-                    text: defaultSelectionText.toUpperCase(),
-                    color: Color(0xff555555),
-                  )
-                : SizedBox.shrink(),
-            const Gap(10),
-            Icon(icon, size: 30),
-          ],
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: 370,
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF2F2F2),
+            borderRadius: BorderRadius.circular(44),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomText(text: text, color: Color(0xff555555)),
+              Spacer(),
+              withDefaultSelection
+                  ? CustomText(
+                      text: defaultSelectionText.toUpperCase(),
+                      color: Color(0xff555555),
+                    )
+                  : SizedBox.shrink(),
+              const Gap(10),
+              Icon(icon, size: 30),
+            ],
+          ),
         ),
       ),
     );
