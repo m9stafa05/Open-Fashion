@@ -45,7 +45,7 @@ class AddressDataFlow extends StatelessWidget {
             ],
           ),
 
-          Icon(Icons.arrow_forward_ios_outlined),
+          Icon(Icons.arrow_forward_ios_outlined, color: Colors.grey),
         ],
       ),
     );
