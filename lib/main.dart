@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_fashion/models/product_model.dart';
 import 'package:open_fashion/screens/add_address_screen.dart';
+import 'package:open_fashion/screens/add_credit_card_screen.dart';
 import 'package:open_fashion/screens/check_out_screen.dart';
 import 'package:open_fashion/screens/home_screen.dart';
 import 'package:open_fashion/screens/place_order_screen.dart';
@@ -46,6 +47,8 @@ class OpenFashion extends StatelessWidget {
           );
         },
         AddAddressScreen.id: (context) => const AddAddressScreen(),
+        AddCreditCardScreen.id: (context) =>
+            const AddCreditCardScreen(),
       },
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.id,
