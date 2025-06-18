@@ -21,9 +21,19 @@ class _AddAddressScreenBodyState extends State<AddAddressScreenBody> {
             as Map<String, dynamic>?;
     return Column(
       children: [
-        CustomTextHeader(text: 'Add shipping address'),
-        AddAddressForm(key: _formKey, savedAddress: savedAddress),
-        Spacer(),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                CustomTextHeader(text: 'Add shipping address'),
+                AddAddressForm(
+                  key: _formKey,
+                  savedAddress: savedAddress,
+                ),
+              ],
+            ),
+          ),
+        ),
         CustomBottom(
           text: 'Add now',
           onTap: () {
