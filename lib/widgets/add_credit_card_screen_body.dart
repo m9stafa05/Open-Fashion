@@ -21,37 +21,6 @@ class _AddCreditCardScreenBodyState
   late String cvvCode;
   bool showBackView = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  late TextEditingController _cardNumberController;
-  late TextEditingController _expiryDateController;
-  late TextEditingController _cardHolderNameController;
-  late TextEditingController _cvvCodeController;
-
-  @override
-  void initState() {
-    super.initState();
-    cardNumber = widget.savedCard?['cardNumber'] ?? '';
-    expiryDate = widget.savedCard?['expiryDate'] ?? '';
-    cardHolderName = widget.savedCard?['cardHolderName'] ?? '';
-    cvvCode = widget.savedCard?['cvvCode'] ?? '';
-
-    _cardNumberController = TextEditingController(text: cardNumber);
-    _expiryDateController = TextEditingController(text: expiryDate);
-    _cardHolderNameController = TextEditingController(
-      text: cardHolderName,
-    );
-    _cvvCodeController = TextEditingController(text: cvvCode);
-  }
-
-  @override
-  void dispose() {
-    _cardNumberController.dispose();
-    _expiryDateController.dispose();
-    _cardHolderNameController.dispose();
-    _cvvCodeController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -64,8 +33,7 @@ class _AddCreditCardScreenBodyState
               children: [
                 // Credit Card information
                 CreditCardWidget(
-                  cardNumber:
-                      widget.savedCard?['cardNumber'] ?? cardNumber,
+                  cardNumber: cardNumber,
                   expiryDate: expiryDate,
                   cardHolderName: cardHolderName,
                   cvvCode: cvvCode,
