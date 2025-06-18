@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:open_fashion/widgets/address_storge.dart';
 import 'package:open_fashion/widgets/custom_text_field.dart';
 
 class AddAddressForm extends StatefulWidget {
@@ -51,17 +52,33 @@ class AddAddressFormState extends State<AddAddressForm> {
   @override
   void initState() {
     super.initState();
+    loadSavedAddress();
+  }
+
+  Future<void> loadSavedAddress() async {
     if (widget.savedAddress != null) {
-      firstNameController.text =
-          widget.savedAddress!['first_name'] ?? '';
-      lastNameController.text =
-          widget.savedAddress!['last_name'] ?? '';
-      addressController.text = widget.savedAddress!['address'] ?? '';
-      cityController.text = widget.savedAddress!['city'] ?? '';
-      stateController.text = widget.savedAddress!['state'] ?? '';
-      zipCodeController.text = widget.savedAddress!['zip_code'] ?? '';
-      phoneController.text = widget.savedAddress!['phone'] ?? '';
+      final savedData = await AddressStorage.getAddress();
+      if (savedData != null) {
+        setState(() {
+          firstNameController.text = savedData['first_name'] ?? '';
+          lastNameController.text = savedData['last_name'] ?? '';
+          addressController.text = savedData['address'] ?? '';
+          cityController.text = savedData['city'] ?? '';
+          stateController.text = savedData['state'] ?? '';
+          zipCodeController.text = savedData['zip_code'] ?? '';
+          phoneController.text = savedData['phone'] ?? '';
+        });
+      }
     }
+  }
+
+  Future<Map<String, String>?> saveFormData() async {
+    if (_formKey.currentState?.validate() ?? false) {
+      final formData = getFormData();
+      await AddressStorage.saveAddress(formData);
+      return formData;
+    }
+    return null;
   }
 
   @override
