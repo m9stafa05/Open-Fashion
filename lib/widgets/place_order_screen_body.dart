@@ -87,7 +87,7 @@ class _PlaceOrderScreenBodyState extends State<PlaceOrderScreenBody> {
         ],
         Spacer(),
         TotalCost(price: widget.price * widget.quantity),
-        Gap(20),
+        Gap(10),
         savedCard == null || savedAddress == null
             ? CustomBottom(text: 'Place Order', onTap: () {})
             : CustomBottom(text: 'Checkout', onTap: () {}),

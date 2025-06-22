@@ -97,7 +97,6 @@ class _AddressSelectionState extends State<AddressSelection> {
                   )
                 : SizedBox.shrink(),
           ),
-          const Gap(20),
           savedAddress == null
               ? SelectContainer(
                   onTap: () {
