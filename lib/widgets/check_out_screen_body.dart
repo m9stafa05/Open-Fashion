@@ -27,8 +27,7 @@ class CheckOutScreenBody extends StatefulWidget {
 
 class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
   int selectedQuantity = 1;
-
-  double get total => widget.price * selectedQuantity;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +47,14 @@ class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
               selectedQuantity = v;
             });
           },
+          quantity: selectedQuantity,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: PromoDelivery(),
         ),
         Spacer(),
-        TotalCost(price: total),
+        TotalCost(price: widget.price * selectedQuantity),
         Gap(10),
         CustomBottom(
           text: 'Checkout',
@@ -68,7 +68,7 @@ class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
                 'description': widget.description,
                 'price': widget.price,
                 'quantity': selectedQuantity,
-                'total': total,
+                'total': widget.price * selectedQuantity,
               },
             );
           },
