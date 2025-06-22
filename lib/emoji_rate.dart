@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
+// ignore: must_be_immutable
 class EmojiRate extends StatefulWidget {
-  const EmojiRate({super.key, required this.isSelecting});
-  final bool isSelecting;
+  EmojiRate({super.key, required this.isSelecting});
+  bool isSelecting;
   @override
   State<EmojiRate> createState() => _EmojiRateState();
 }
@@ -21,6 +22,7 @@ class _EmojiRateState extends State<EmojiRate> {
           onTap: () {
             setState(() {
               selectedIndex = 0;
+              widget.isSelecting = true;
             });
           },
           child: SvgPicture.asset(
@@ -33,6 +35,7 @@ class _EmojiRateState extends State<EmojiRate> {
           onTap: () {
             setState(() {
               selectedIndex = 1;
+              widget.isSelecting = true;
             });
           },
           child: SvgPicture.asset(
@@ -45,6 +48,7 @@ class _EmojiRateState extends State<EmojiRate> {
           onTap: () {
             setState(() {
               selectedIndex = 2;
+              widget.isSelecting = true;
             });
           },
           child: SvgPicture.asset(
