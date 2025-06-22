@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:open_fashion/widgets/checkout_card.dart';
 import 'package:open_fashion/widgets/custom_bottom.dart';
 import 'package:open_fashion/widgets/custom_text_header.dart';
 import 'package:open_fashion/widgets/address_selection.dart';
@@ -7,8 +8,9 @@ import 'package:open_fashion/widgets/payment_method_selection.dart';
 import 'package:open_fashion/widgets/shopping_method_selection.dart';
 import 'package:open_fashion/widgets/total_cost.dart';
 
-class PlaceOrderScreenBody extends StatelessWidget {
-  const PlaceOrderScreenBody({
+// ignore: must_be_immutable
+class PlaceOrderScreenBody extends StatefulWidget {
+  PlaceOrderScreenBody({
     super.key,
     required this.image,
     required this.title,
@@ -21,8 +23,30 @@ class PlaceOrderScreenBody extends StatelessWidget {
   final String title;
   final String description;
   final double price;
-  final int quantity;
+  late int quantity;
   final double total;
+
+  @override
+  State<PlaceOrderScreenBody> createState() =>
+      _PlaceOrderScreenBodyState();
+}
+
+class _PlaceOrderScreenBodyState extends State<PlaceOrderScreenBody> {
+  dynamic savedCard;
+  dynamic savedAddress;
+
+  void onPaymentChanged(dynamic card) {
+    setState(() {
+      savedCard = card;
+    });
+  }
+
+  void onAddressChanged(dynamic address) {
+    setState(() {
+      savedAddress = address;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,19 +54,43 @@ class PlaceOrderScreenBody extends StatelessWidget {
         CustomTextHeader(text: 'CheckOut'),
         const Gap(10),
         // Address Section
-        AddressSelection(),
+        AddressSelection(
+          savedAddress: savedAddress,
+          onAddressChanged: onAddressChanged,
+        ),
         const Gap(10),
         // Shopping Method Section
-        ShoppingMethod(),
+        (savedCard == null || savedAddress == null)
+            ? ShoppingMethod()
+            : SizedBox.shrink(),
         const Gap(10),
         // Payment Method Section
-        PaymentMethodSelection(),
+        PaymentMethodSelection(
+          savedCard: savedCard,
+          onPaymentChanged: onPaymentChanged,
+        ),
+        const Gap(10),
+        // Only show these when both savedCard and savedAddress have data
+        if (savedCard != null && savedAddress != null) ...[
+          CheckoutCard(
+            image: widget.image,
+            title: widget.title,
+            description: widget.description,
+            price: widget.price,
+            quantity: widget.quantity,
+            onChange: (v) {
+              setState(() {
+                widget.quantity = v;
+              });
+            },
+          ),
+        ],
         Spacer(),
-        TotalCost(price: total),
+        TotalCost(price: widget.price * widget.quantity),
         Gap(20),
-        CustomBottom(text: 'Place order', onTap: () {
-          
-        }),
+        savedCard == null || savedAddress == null
+            ? CustomBottom(text: 'Place Order', onTap: () {})
+            : CustomBottom(text: 'Checkout', onTap: () {}),
       ],
     );
   }
