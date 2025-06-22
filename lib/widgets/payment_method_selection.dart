@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_fashion/screens/add_credit_card_screen.dart';
 import 'package:open_fashion/widgets/add_payment_method.dart';
+import 'package:open_fashion/widgets/payment_storage.dart';
 import 'package:open_fashion/widgets/selected_card.dart';
 
 // ignore: must_be_immutable
@@ -27,6 +28,17 @@ class _PaymentMethodSelectionState
   void initState() {
     super.initState();
     savedCard = widget.savedCard;
+    _loadSavedCard();
+  }
+
+  Future<void> _loadSavedCard() async {
+    final savedData = await PaymentStorage.getPayment();
+    if (savedData != null) {
+      setState(() {
+        savedCard = savedData;
+      });
+      widget.onPaymentChanged(savedData);
+    }
   }
 
   void openCard(context) async {
@@ -37,6 +49,9 @@ class _PaymentMethodSelectionState
     );
 
     if (cardData != null) {
+      await PaymentStorage.savePayment(
+        cardData as Map<String, dynamic>,
+      );
       setState(() {
         savedCard = cardData;
       });
@@ -52,6 +67,9 @@ class _PaymentMethodSelectionState
     );
 
     if (cardData != null) {
+      await PaymentStorage.savePayment(
+        cardData as Map<String, dynamic>,
+      );
       setState(() {
         savedCard = cardData;
       });
