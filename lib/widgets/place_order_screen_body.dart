@@ -28,19 +28,21 @@ class PlaceOrderScreenBody extends StatelessWidget {
     return Column(
       children: [
         CustomTextHeader(text: 'CheckOut'),
-        const Gap(20),
+        const Gap(10),
         // Address Section
         AddressSelection(),
         const Gap(10),
         // Shopping Method Section
         ShoppingMethod(),
-        const Gap(30),
+        const Gap(10),
         // Payment Method Section
         PaymentMethodSelection(),
         Spacer(),
         TotalCost(price: total),
         Gap(20),
-        CustomBottom(text: 'Place order', onTap: () {}),
+        CustomBottom(text: 'Place order', onTap: () {
+          
+        }),
       ],
     );
   }
