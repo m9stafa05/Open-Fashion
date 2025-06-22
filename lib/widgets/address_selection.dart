@@ -4,7 +4,7 @@ import 'package:open_fashion/screens/add_address_screen.dart';
 import 'package:open_fashion/widgets/address_data_flow.dart';
 import 'package:open_fashion/widgets/custom_text.dart';
 import 'package:open_fashion/widgets/select_container.dart';
-import 'package:open_fashion/widgets/address_storge.dart';
+import 'package:open_fashion/widgets/address_storage.dart';
 
 class AddressSelection extends StatefulWidget {
   const AddressSelection({
@@ -19,7 +19,7 @@ class AddressSelection extends StatefulWidget {
 }
 
 class _AddressSelectionState extends State<AddressSelection> {
-  dynamic savedAddress = null;
+  dynamic savedAddress;
 
   @override
   void initState() {
