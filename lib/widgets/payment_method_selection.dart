@@ -3,8 +3,16 @@ import 'package:open_fashion/screens/add_credit_card_screen.dart';
 import 'package:open_fashion/widgets/add_payment_method.dart';
 import 'package:open_fashion/widgets/selected_card.dart';
 
+// ignore: must_be_immutable
 class PaymentMethodSelection extends StatefulWidget {
-  const PaymentMethodSelection({super.key});
+  final dynamic savedCard;
+  final ValueChanged<dynamic> onPaymentChanged;
+
+  const PaymentMethodSelection({
+    super.key,
+    required this.savedCard,
+    required this.onPaymentChanged,
+  });
 
   @override
   State<PaymentMethodSelection> createState() =>
@@ -13,19 +21,26 @@ class PaymentMethodSelection extends StatefulWidget {
 
 class _PaymentMethodSelectionState
     extends State<PaymentMethodSelection> {
-  dynamic savedCard;
+  late dynamic savedCard;
+
+  @override
+  void initState() {
+    super.initState();
+    savedCard = widget.savedCard;
+  }
 
   void openCard(context) async {
     final cardData = await Navigator.pushNamed(
       context,
       AddCreditCardScreen.id,
-      arguments: savedCard, // Pass existing card data
+      arguments: savedCard,
     );
 
     if (cardData != null) {
       setState(() {
         savedCard = cardData;
       });
+      widget.onPaymentChanged(cardData);
     }
   }
 
@@ -33,13 +48,14 @@ class _PaymentMethodSelectionState
     final cardData = await Navigator.pushNamed(
       context,
       AddCreditCardScreen.id,
-      arguments: savedCard, // Pass existing card data
+      arguments: savedCard,
     );
 
     if (cardData != null) {
       setState(() {
         savedCard = cardData;
       });
+      widget.onPaymentChanged(cardData);
     }
   }
 
