@@ -12,18 +12,29 @@ class CheckoutCard extends StatefulWidget {
     required this.description,
     required this.price,
     required this.onChange,
+    required this.quantity,
   });
   final String image;
   final String title;
   final String description;
   final double price;
   final Function(int) onChange;
+  final int quantity;
   @override
   State<CheckoutCard> createState() => _CheckoutCardState();
 }
 
 class _CheckoutCardState extends State<CheckoutCard> {
-  int count = 1;
+  late int count = 1;
+
+  @override
+  void initState() {
+    count = 1;
+    count = widget.quantity;
+    
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
