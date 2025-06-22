@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:open_fashion/widgets/address_storge.dart';
+import 'package:open_fashion/widgets/address_storage.dart';
 import 'package:open_fashion/widgets/custom_text_field.dart';
 
 class AddAddressForm extends StatefulWidget {
