@@ -6,9 +6,15 @@ import 'package:open_fashion/screens/home_screen.dart';
 import 'package:open_fashion/widgets/container_bottom.dart';
 import 'package:open_fashion/widgets/custom_text.dart';
 
-class DisplayedDialog extends StatelessWidget {
+class DisplayedDialog extends StatefulWidget {
   const DisplayedDialog({super.key});
-  final bool rating = false;
+
+  @override
+  State<DisplayedDialog> createState() => _DisplayedDialogState();
+}
+
+class _DisplayedDialogState extends State<DisplayedDialog> {
+  int? selectedIndex;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -64,18 +70,31 @@ class DisplayedDialog extends StatelessWidget {
             const Gap(15),
             const CustomText(text: 'Rate your purchase', size: 18),
             Gap(15),
-            EmojiRate(isSelecting: rating),
+            EmojiRate(
+              onChanged: (idx) {
+                setState(() {
+                  selectedIndex = idx;
+                });
+              },
+            ),
             Gap(30),
             Row(
               children: [
-                ContainerBottom(
-                  text: 'Submit',
-                  bgColor: Colors.black,
-                  textColor: Colors.white,
-                  onTap: () {
-                    Navigator.pushNamed(context, HomeScreen.id);
-                  },
-                ),
+                selectedIndex != null
+                    ? ContainerBottom(
+                        text: 'Submit',
+                        bgColor: Colors.black,
+                        textColor: Colors.white,
+                        onTap: () {
+                          Navigator.pushNamed(context, HomeScreen.id);
+                        },
+                      )
+                    : ContainerBottom(
+                        text: 'Submit',
+                        bgColor: Colors.grey,
+                        textColor: Colors.white,
+                        onTap: () {},
+                      ),
                 Gap(10),
                 ContainerBottom(
                   text: 'Back To Home',

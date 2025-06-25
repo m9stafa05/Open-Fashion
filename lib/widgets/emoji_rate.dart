@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-// ignore: must_be_immutable
 class EmojiRate extends StatefulWidget {
-  EmojiRate({super.key, required this.isSelecting});
-  bool isSelecting;
+  const EmojiRate({super.key, this.onChanged});
+  final ValueChanged<int?>? onChanged;
   @override
   State<EmojiRate> createState() => _EmojiRateState();
 }
@@ -13,18 +12,22 @@ class EmojiRate extends StatefulWidget {
 class _EmojiRateState extends State<EmojiRate> {
   int? selectedIndex;
 
+  void _select(int idx) {
+    setState(() {
+      selectedIndex = idx;
+    });
+    if (widget.onChanged != null) {
+      widget.onChanged!(selectedIndex);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
-          onTap: () {
-            setState(() {
-              selectedIndex = 0;
-              widget.isSelecting = true;
-            });
-          },
+          onTap: () => _select(0),
           child: SvgPicture.asset(
             'assets/svgs/InLove.svg',
             color: selectedIndex == 0 ? Colors.green : Colors.grey,
@@ -32,12 +35,7 @@ class _EmojiRateState extends State<EmojiRate> {
         ),
         const Gap(15),
         GestureDetector(
-          onTap: () {
-            setState(() {
-              selectedIndex = 1;
-              widget.isSelecting = true;
-            });
-          },
+          onTap: () => _select(1),
           child: SvgPicture.asset(
             'assets/svgs/Happy.svg',
             color: selectedIndex == 1 ? Colors.yellow : Colors.grey,
@@ -45,12 +43,7 @@ class _EmojiRateState extends State<EmojiRate> {
         ),
         const Gap(15),
         GestureDetector(
-          onTap: () {
-            setState(() {
-              selectedIndex = 2;
-              widget.isSelecting = true;
-            });
-          },
+          onTap: () => _select(2),
           child: SvgPicture.asset(
             'assets/svgs/Disappointed.svg',
             color: selectedIndex == 2 ? Colors.red : Colors.grey,
