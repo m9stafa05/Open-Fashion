@@ -82,10 +82,10 @@ class _AddressSelectionState extends State<AddressSelection> {
         children: [
           CustomText(
             text: 'Shipping address'.toUpperCase(),
-            color: Color(0xff888888),
+            color: const Color(0xff888888),
             size: 14,
           ),
-          Gap(15),
+          const Gap(15),
           Padding(
             padding: const EdgeInsets.only(left: 20.0),
             child: savedAddress != null
@@ -95,7 +95,7 @@ class _AddressSelectionState extends State<AddressSelection> {
                       savedAddress: savedAddress,
                     ),
                   )
-                : SizedBox.shrink(),
+                : const SizedBox.shrink(),
           ),
           savedAddress == null
               ? SelectContainer(
@@ -106,7 +106,7 @@ class _AddressSelectionState extends State<AddressSelection> {
                   icon: Icons.add,
                   withDefaultSelection: false,
                 )
-              : SizedBox.shrink(),
+              : const SizedBox.shrink(),
         ],
       ),
     );

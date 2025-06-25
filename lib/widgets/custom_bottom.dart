@@ -20,7 +20,7 @@ class CustomBottom extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         width: double.infinity,
         color: kPrimaryColor,
         child: Row(
@@ -29,11 +29,12 @@ class CustomBottom extends StatelessWidget {
             withIcon
                 ? SvgPicture.asset(
                     'assets/svgs/shopping bag.svg',
+                    // ignore: deprecated_member_use
                     color: Colors.white,
                     width: 25,
                   )
-                : SizedBox.shrink(),
-            Gap(20),
+                : const SizedBox.shrink(),
+            const Gap(20),
             CustomText(
               text: text.toUpperCase(),
               size: 20,

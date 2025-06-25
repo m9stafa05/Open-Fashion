@@ -27,14 +27,13 @@ class CheckOutScreenBody extends StatefulWidget {
 
 class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
   int selectedQuantity = 1;
-  
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: CustomTextHeader(text: 'CheckOut'),
         ),
         CheckoutCard(
@@ -49,13 +48,13 @@ class _CheckOutScreenBodyState extends State<CheckOutScreenBody> {
           },
           quantity: selectedQuantity,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
           child: PromoDelivery(),
         ),
-        Spacer(),
+        const Spacer(),
         TotalCost(price: widget.price * selectedQuantity),
-        Gap(10),
+        const Gap(10),
         CustomBottom(
           text: 'Checkout',
           onTap: () {

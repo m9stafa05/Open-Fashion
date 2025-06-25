@@ -30,6 +30,7 @@ class _EmojiRateState extends State<EmojiRate> {
           onTap: () => _select(0),
           child: SvgPicture.asset(
             'assets/svgs/InLove.svg',
+            // ignore: deprecated_member_use
             color: selectedIndex == 0 ? Colors.green : Colors.grey,
           ),
         ),
@@ -38,6 +39,7 @@ class _EmojiRateState extends State<EmojiRate> {
           onTap: () => _select(1),
           child: SvgPicture.asset(
             'assets/svgs/Happy.svg',
+            // ignore: deprecated_member_use
             color: selectedIndex == 1 ? Colors.yellow : Colors.grey,
           ),
         ),
@@ -46,6 +48,7 @@ class _EmojiRateState extends State<EmojiRate> {
           onTap: () => _select(2),
           child: SvgPicture.asset(
             'assets/svgs/Disappointed.svg',
+            // ignore: deprecated_member_use
             color: selectedIndex == 2 ? Colors.red : Colors.grey,
           ),
         ),

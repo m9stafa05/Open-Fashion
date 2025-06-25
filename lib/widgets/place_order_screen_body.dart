@@ -52,7 +52,7 @@ class _PlaceOrderScreenBodyState extends State<PlaceOrderScreenBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomTextHeader(text: 'CheckOut'),
+        const CustomTextHeader(text: 'CheckOut'),
         const Gap(10),
         // Address Section
         AddressSelection(
@@ -62,8 +62,8 @@ class _PlaceOrderScreenBodyState extends State<PlaceOrderScreenBody> {
         const Gap(10),
         // Shopping Method Section
         (savedCard == null || savedAddress == null)
-            ? ShoppingMethod()
-            : SizedBox.shrink(),
+            ? const ShoppingMethod()
+            : const SizedBox.shrink(),
         const Gap(10),
         // Payment Method Section
         PaymentMethodSelection(
@@ -86,9 +86,9 @@ class _PlaceOrderScreenBodyState extends State<PlaceOrderScreenBody> {
             },
           ),
         ],
-        Spacer(),
+        const Spacer(),
         TotalCost(price: widget.price * widget.quantity),
-        Gap(10),
+        const Gap(10),
         savedCard == null || savedAddress == null
             ? CustomBottom(text: 'Place Order', onTap: () {})
             : CustomBottom(

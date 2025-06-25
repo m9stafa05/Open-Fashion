@@ -23,7 +23,7 @@ class PlaceOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(isBlack: false),
+      appBar: const CustomAppBar(isBlack: false),
       body: PlaceOrderScreenBody(
         image: image,
         title: title,

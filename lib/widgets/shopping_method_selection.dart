@@ -15,11 +15,11 @@ class ShoppingMethod extends StatelessWidget {
         children: [
           CustomText(
             text: 'Shipping Method'.toUpperCase(),
-            color: Color(0xff888888),
+            color: const Color(0xff888888),
             size: 14,
           ),
           const Gap(8),
-          SelectContainer(
+          const SelectContainer(
             text: 'Pickup at store',
             icon: Icons.keyboard_arrow_down_sharp,
             withDefaultSelection: true,

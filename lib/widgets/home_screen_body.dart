@@ -45,7 +45,7 @@ class HomeScreenBody extends StatelessWidget {
               Image.asset('assets/cover/cover.png'),
               const Gap(120),
               // Product Card Section
-              ProductGridView(),
+              const ProductGridView(),
               const Gap(20),
               // Recommendation Section
               CustomText(
@@ -55,10 +55,10 @@ class HomeScreenBody extends StatelessWidget {
               ),
               SvgPicture.asset('assets/svgs/line.svg', width: 200),
               const Gap(8),
-              CoverListView(),
+              const CoverListView(),
               const Gap(10),
               //Footer Section
-              HomeScreenFooter(),
+              const HomeScreenFooter(),
             ],
           ),
         ),

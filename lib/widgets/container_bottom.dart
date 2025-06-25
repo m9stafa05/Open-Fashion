@@ -20,8 +20,7 @@ class ContainerBottom extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 16),
-
+          padding: const EdgeInsets.symmetric(vertical: 16),
           decoration: BoxDecoration(
             color: bgColor,
             border: Border.all(color: Colors.grey),

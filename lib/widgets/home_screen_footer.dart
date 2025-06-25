@@ -37,21 +37,21 @@ class HomeScreenFooter extends StatelessWidget {
           ),
           SvgPicture.asset('assets/svgs/line.svg', width: 200),
           const Gap(20),
-          CustomText(
+          const CustomText(
             text: 'support@openui.design',
             color: Colors.white,
           ),
           const Gap(8),
-          CustomText(text: '+60 825 876', color: Colors.white),
+          const CustomText(text: '+60 825 876', color: Colors.white),
           const Gap(8),
-          CustomText(
+          const CustomText(
             text: '08:00 - 22:00 - Everyday',
             color: Colors.white,
           ),
           const Gap(15),
           SvgPicture.asset('assets/svgs/line.svg', width: 200),
           const Gap(20),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomText(
@@ -64,8 +64,8 @@ class HomeScreenFooter extends StatelessWidget {
           Container(
             width: double.infinity,
             color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Center(
                 child: CustomText(
                   size: 12,

@@ -43,7 +43,7 @@ class ProductCard extends StatelessWidget {
             const Gap(15),
             CustomText(
               text: '\$${item.price.toString()}',
-              color: Color(0xffDD8560),
+              color: const Color(0xffDD8560),
               size: 14,
               weight: FontWeight.bold,
             ),

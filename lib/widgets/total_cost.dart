@@ -22,7 +22,7 @@ class TotalCost extends StatelessWidget {
             text: price.toString(),
             height: 1.5,
             size: 24,
-            color: Color(0xffDD8560),
+            color: const Color(0xffDD8560),
             weight: FontWeight.bold,
           ),
         ],

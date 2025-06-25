@@ -27,7 +27,7 @@ class SelectedCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         children: [
-          Divider(),
+          const Divider(),
           GestureDetector(
             onTap: onCardSelect,
             child: Padding(
@@ -40,8 +40,8 @@ class SelectedCard extends StatelessWidget {
                   CustomText(
                     text: 'Master Card ending **** $lastFourDigits',
                   ),
-                  Spacer(),
-                  Icon(
+                  const Spacer(),
+                  const Icon(
                     Icons.arrow_forward_ios_outlined,
                     color: Colors.grey,
                   ),
@@ -49,7 +49,7 @@ class SelectedCard extends StatelessWidget {
               ),
             ),
           ),
-          Divider(),
+          const Divider(),
         ],
       ),
     );

@@ -13,13 +13,14 @@ class CustomTextHeader extends StatelessWidget {
       child: Column(
         children: [
           CustomText(text: text.toUpperCase(), size: 18, spacing: 6),
-          Gap(10),
+          const Gap(10),
           SvgPicture.asset(
             'assets/svgs/line.svg',
             width: 200,
+            // ignore: deprecated_member_use
             color: kPrimaryColor,
           ),
-          Gap(20),
+          const Gap(20),
         ],
       ),
     );

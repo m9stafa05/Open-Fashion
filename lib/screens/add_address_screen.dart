@@ -7,7 +7,7 @@ class AddAddressScreen extends StatelessWidget {
   static const String id = '/addAddressScreen';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(isBlack: false),
       body: AddAddressScreenBody(),
     );

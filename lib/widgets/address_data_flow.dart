@@ -44,8 +44,10 @@ class AddressDataFlow extends StatelessWidget {
               ),
             ],
           ),
-
-          Icon(Icons.arrow_forward_ios_outlined, color: Colors.grey),
+          const Icon(
+            Icons.arrow_forward_ios_outlined,
+            color: Colors.grey,
+          ),
         ],
       ),
     );

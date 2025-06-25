@@ -21,7 +21,7 @@ class CheckOutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(isBlack: false),
+      appBar: const CustomAppBar(isBlack: false),
       body: CheckOutScreenBody(
         image: image,
         title: title,

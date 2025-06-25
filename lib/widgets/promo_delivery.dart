@@ -10,32 +10,32 @@ class PromoDelivery extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Gap(10),
-        Divider(),
-        Gap(10),
+        const Gap(10),
+        const Divider(),
+        const Gap(10),
         Row(
           children: [
-            Gap(20),
+            const Gap(20),
             SvgPicture.asset('assets/svgs/promo.svg', width: 25),
-            Gap(20),
-            CustomText(text: 'Add promo code'),
+            const Gap(20),
+            const CustomText(text: 'Add promo code'),
           ],
         ),
-        Gap(10),
-        Divider(),
-        Gap(10),
+        const Gap(10),
+        const Divider(),
+        const Gap(10),
         Row(
           children: [
-            Gap(20),
+            const Gap(20),
             SvgPicture.asset('assets/svgs/Delivery.svg', width: 25),
-            Gap(20),
-            CustomText(text: 'Delivery'),
-            Spacer(),
-            CustomText(text: 'Free'),
+            const Gap(20),
+            const CustomText(text: 'Delivery'),
+            const Spacer(),
+            const CustomText(text: 'Free'),
           ],
         ),
-        Gap(10),
-        Divider(),
+        const Gap(10),
+        const Divider(),
       ],
     );
   }

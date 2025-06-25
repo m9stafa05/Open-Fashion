@@ -11,11 +11,12 @@ class Quantity extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(color: Colors.grey, width: 1),
         ),
+        // ignore: deprecated_member_use
         child: SvgPicture.asset(svg, color: kPrimaryColor),
       ),
     );

@@ -33,7 +33,7 @@ class _AddCreditCardScreenBodyState
               ),
               child: Column(
                 children: [
-                  CustomTextHeader(text: 'Payment method'),
+                  const CustomTextHeader(text: 'Payment method'),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,

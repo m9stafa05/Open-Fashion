@@ -69,7 +69,7 @@ class _DisplayedDialogState extends State<DisplayedDialog> {
             ),
             const Gap(15),
             const CustomText(text: 'Rate your purchase', size: 18),
-            Gap(15),
+            const Gap(15),
             EmojiRate(
               onChanged: (idx) {
                 setState(() {
@@ -77,7 +77,7 @@ class _DisplayedDialogState extends State<DisplayedDialog> {
                 });
               },
             ),
-            Gap(30),
+            const Gap(30),
             Row(
               children: [
                 selectedIndex != null
@@ -95,7 +95,7 @@ class _DisplayedDialogState extends State<DisplayedDialog> {
                         textColor: Colors.white,
                         onTap: () {},
                       ),
-                Gap(10),
+                const Gap(10),
                 ContainerBottom(
                   text: 'Back To Home',
                   bgColor: Colors.white,

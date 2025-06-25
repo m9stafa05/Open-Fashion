@@ -25,7 +25,7 @@ class _AddAddressScreenBodyState extends State<AddAddressScreenBody> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                CustomTextHeader(text: 'Add shipping address'),
+                const CustomTextHeader(text: 'Add shipping address'),
                 AddAddressForm(
                   key: _formKey,
                   savedAddress: savedAddress,

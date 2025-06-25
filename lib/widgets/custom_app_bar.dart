@@ -18,22 +18,26 @@ class CustomAppBar extends StatelessWidget
         backgroundColor: isBlack ? kPrimaryColor : kSecondaryColor,
         leading: SvgPicture.asset(
           'assets/svgs/Menu.svg',
+          // ignore: deprecated_member_use
           color: isBlack ? kSecondaryColor : kPrimaryColor,
         ),
         leadingWidth: 40,
         centerTitle: true,
         title: SvgPicture.asset(
           'assets/logo/Logo.svg',
+          // ignore: deprecated_member_use
           color: isBlack ? kSecondaryColor : kPrimaryColor,
         ),
         actions: [
           SvgPicture.asset(
             'assets/svgs/Search.svg',
+            // ignore: deprecated_member_use
             color: isBlack ? kSecondaryColor : kPrimaryColor,
           ),
-          Gap(20),
+          const Gap(20),
           SvgPicture.asset(
             'assets/svgs/shopping bag.svg',
+            // ignore: deprecated_member_use
             color: isBlack ? kSecondaryColor : kPrimaryColor,
           ),
         ],

@@ -17,7 +17,7 @@ class AddPaymentMethod extends StatelessWidget {
         children: [
           CustomText(
             text: 'Payment method'.toUpperCase(),
-            color: Color(0xff888888),
+            color: const Color(0xff888888),
             size: 14,
           ),
           const Gap(8),

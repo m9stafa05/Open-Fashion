@@ -7,7 +7,7 @@ class AddCreditCardScreen extends StatelessWidget {
   static const String id = '/add_credit_card_screen';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(isBlack: false),
       body: AddCreditCardScreenBody(),
     );

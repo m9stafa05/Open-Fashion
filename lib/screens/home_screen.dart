@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   static const String id = '/homeScreen';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: CustomAppBar(isBlack: true),
       body: HomeScreenBody(),

@@ -31,7 +31,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
   void initState() {
     count = 1;
     count = widget.quantity;
-    
+
     super.initState();
   }
 
@@ -55,7 +55,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
                   spacing: 5,
                   color: kPrimaryColor,
                 ),
-                Gap(10),
+                const Gap(10),
                 SizedBox(
                   width: size.width * .5,
                   child: CustomText(
@@ -100,7 +100,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
                 const Gap(30),
                 CustomText(
                   text: '\$${widget.price.toString()}',
-                  color: Color(0xffDD8560),
+                  color: const Color(0xffDD8560),
                   size: 18,
                   weight: FontWeight.bold,
                 ),
