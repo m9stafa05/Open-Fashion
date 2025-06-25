@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:open_fashion/emoji_rate.dart';
+import 'package:open_fashion/widgets/emoji_rate.dart';
 import 'package:open_fashion/screens/home_screen.dart';
 import 'package:open_fashion/widgets/container_bottom.dart';
 import 'package:open_fashion/widgets/custom_text.dart';
